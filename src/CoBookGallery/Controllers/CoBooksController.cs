@@ -8,5 +8,9 @@ namespace CoBookGallery.Controllers
 {
     public class CoBooksController : Controller
     {
+        public string Detail()
+        {
+            return "Hello form the co books controller";
+        }
     }
 }

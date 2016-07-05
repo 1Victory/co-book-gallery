@@ -8,9 +8,14 @@ namespace CoBookGallery.Controllers
 {
     public class CoBooksController : Controller
     {
-        public string Detail()
+        public ActionResult Detail()
         {
-            return "Hello form the co books controller";
+            if (DateTime.Today.DayOfWeek == DayOfWeek.Wednesday)
+            {
+                return  Redirect("/");
+            }
+            return Content("Hello from the co books controller");
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoBookGallery.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,23 +11,25 @@ namespace CoBookGallery.Controllers
     {
         public ActionResult Detail()
         {
-           
 
-
-            ViewBag.SeriesTitle = "The Amazing Man";
-            ViewBag.IssueNumber = 700;
-            ViewBag.Description = "<p>This is where information will about the c book will go..";
-            ViewBag.Artists = new string[]
+            var coBook = new CoBook()
+            {
+                SeriesTitle = "The Amazing Man",
+                IssueNumber = 700,
+                DescriptionHtml = "<p>This is where information will about the c book will go..</p>",
+                Artists = new Artist[]
                 {
-                    "Script: Dan Slott",
-                    "Pencils: Humberto Ramos",
-                    "Inks: Victor Olazaba",
-                    "Colors: Edgar Delgado",
-                    "Letters: Chris Eliopoulos"
+                    new Artist() { Name = "Dan Slott", Role = "Script"},
+                    new Artist() { Name = "Humberto Ramos", Role = "Pencils"},
+                    new Artist() { Name = "Victor Olazaba", Role = "Inks"},
+                    new Artist() { Name = "Edgar Delgado", Role = "Colors"},
+                    new Artist() { Name = "Chris Eliopoulos", Role = "Letters"},
+                }
+        };
 
-                };
 
-                return View();
+
+                return View(coBook);
 
         }
     }

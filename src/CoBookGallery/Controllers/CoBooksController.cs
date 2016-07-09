@@ -14,7 +14,7 @@ namespace CoBookGallery.Controllers
 
             var coBook = new CoBook()
             {
-                SeriesTitle = "The Amazing Man",
+                SeriesTitle = "The Amazing Spider Man",
                 IssueNumber = 700,
                 DescriptionHtml = "<p>This is where information will about the c book will go..</p>",
                 Artists = new Artist[]

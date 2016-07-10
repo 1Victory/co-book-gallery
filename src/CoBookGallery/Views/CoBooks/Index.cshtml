@@ -12,10 +12,14 @@
     @foreach (var coBook in Model)
     {
         <div class="col-md-3">
-            <h4>@coBook.DisplayText</h4>
+            <h4>@Html.ActionLink(coBook.DisplayText, "Detail",
+               new  { id = coBook.Id })</h4>
+
+            <a href="@Url.Action("Detail", new { id = coBook.Id })">
             <img src="/Images/@coBook.CoverImageFileName"
                  alt="@coBook.DisplayText"
                  class="img-responsive" />
+                </a>
         </div>
 
 

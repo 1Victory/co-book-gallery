@@ -1,4 +1,5 @@
-﻿using CoBookGallery.Models;
+﻿using CoBookGallery.Data;
+using CoBookGallery.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,28 +10,23 @@ namespace CoBookGallery.Controllers
 {
     public class CoBooksController : Controller
     {
-        public ActionResult Detail()
+        private CoBookRepository _coBookRepository = null;
+
+        public CoBooksController()
         {
-
-            var coBook = new CoBook()
+            _coBookRepository = new CoBookRepository();
+        }
+        public ActionResult Detail(int? id)
+        {
+            if(id == null)
             {
-                SeriesTitle = "The Amazing Spider Man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>This is where information will about the c book will go..</p>",
-                Artists = new Artist[]
-                {
-                    new Artist() { Name = "Dan Slott", Role = "Script"},
-                    new Artist() { Name = "Humberto Ramos", Role = "Pencils"},
-                    new Artist() { Name = "Victor Olazaba", Role = "Inks"},
-                    new Artist() { Name = "Edgar Delgado", Role = "Colors"},
-                    new Artist() { Name = "Chris Eliopoulos", Role = "Letters"},
-                }
-        };
+                return HttpNotFound();
+            }
 
+            var coBook = _coBookRepository.GetCoBook(id.Value);
 
-
-                return View(coBook);
-
+return View(coBook);
+            
         }
     }
 }

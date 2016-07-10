@@ -60,6 +60,10 @@ namespace CoBookGallery.Data
         }
     };
 
+        public CoBook[] GetCoBooks()
+        {
+            return _coBooks;
+        }
 
 
                 public CoBook GetCoBook(int id)

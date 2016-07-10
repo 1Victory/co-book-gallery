@@ -16,6 +16,13 @@ namespace CoBookGallery.Controllers
         {
             _coBookRepository = new CoBookRepository();
         }
+
+        public ActionResult Index()
+        {
+            var coBooks = _coBookRepository.GetCoBooks();
+
+            return View(coBooks);
+        }
         public ActionResult Detail(int? id)
         {
             if(id == null)
